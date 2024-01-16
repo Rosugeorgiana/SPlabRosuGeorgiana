@@ -3,26 +3,30 @@ package lab;
 import java.util.ArrayList;
 import java.util.List;
 import lab.Author;
-class Book {
-    private final String title;
-    private final List<Author> author;
-    private  TableOfContent tableOfContents;
-    private final List<Chapter> chapters;
+class Book extends Section{
+    private String title;
+    private List<Author> author;
+    private TableOfContents tableOfContents;
 
-    public Book(String title, Author author) {
+    public Book(String title) {
+        super();
         this.title = title;
         this.author = new ArrayList<>();
         this.tableOfContents = tableOfContents;
-        this.chapters = new ArrayList<>();
     }
 
-    public void addChapter(Chapter chapter){
-        chapters.add(chapter);
-    }
     public void print() {
         System.out.println("lab.Book Title: " + title);
         for (Author a : author) {
             a.print();
         }
+    }
+
+    public void addAuthor(Author autor) {
+        author.add(autor);
+    }
+
+    public void addContent(Element cap1) {
+        super.add(cap1);
     }
 }

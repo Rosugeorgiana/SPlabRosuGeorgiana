@@ -2,22 +2,25 @@ package lab;
 
 public class main {
     public static void main(String[] args) {
+        Book noapteBuna = new Book("Noapte buna, copii!");
+        Author rpGheo = new Author("Radu Pavel Gheo");
+        noapteBuna.addAuthor(rpGheo);
 
-        Author author = new Author("Example name");
-        Book book = new Book("Sample lab.Book", author);
-        TableOfContent toc = new TableOfContent();
-        Chapter chapter = new Chapter("lab.Chapter 1");
-        SubChapter subChapter = new SubChapter("lab.SubChapter 1");
-        Image image = new Image("lab.Image 1");
-        Paragraph paragraph = new Paragraph("This is a paragraph.");
-        Table table = new Table("lab.Table 1");
+        Section cap1 = new Section();
+        Section cap11 = new Section();
+        Section cap111 = new Section();
+        Section cap1111 = new Section();
+        noapteBuna.addContent( new Paragraph("Multumesc celor care ..."));
+        noapteBuna.addContent( cap1);
+        cap1.add( new Paragraph("Moto capitol"));
+        cap1.add( cap11);
+        cap11.add(new Paragraph("Text from subchapter 1.1"));
+        cap11.add( cap111);
+        cap111.add(new Paragraph("Text from subchapter 1.1.1"));
+        cap111.add( cap1111);
+        cap1111.add(new Image("Image subchapter 1.1.1.1"));
+        noapteBuna.print();
 
-        book.print();
-        toc.print();
-        chapter.print();
-        subChapter.print();
-        image.print();
-        paragraph.print();
-        table.print();
+
     }
 }

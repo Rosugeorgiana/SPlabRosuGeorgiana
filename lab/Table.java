@@ -1,13 +1,21 @@
 package lab;
+class TableOfContents implements Element{
+    public void print() {
+        System.out.println("lab.Table of Contents");
+    }
 
-public class Table {
-        private final String title;
+    @Override
+    public void add(Element element) {
 
-        public Table(String title) {
-            this.title = title;
-        }
+    }
 
-        public void print() {
-            System.out.println("Clase.Table Title: " + title);
-        }
+    @Override
+    public void remove(Element element) {
+
+    }
+
+    @Override
+    public Element get(int index) {
+        return null;
+    }
 }

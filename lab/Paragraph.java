@@ -1,7 +1,10 @@
 package lab;
 
-public class Paragraph {
-    private final String text;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Paragraph implements Element{
+    private String text;
 
     public Paragraph(String text) {
         this.text = text;
@@ -9,5 +12,44 @@ public class Paragraph {
 
     public void print() {
         System.out.println("lab.Paragraph: " + text);
+    }
+
+    @Override
+    public void add(Element element) {
+
+    }
+
+    @Override
+    public void remove(Element element) {
+
+    }
+
+    private List<Paragraph> paragraphs;
+
+    public Paragraph() {
+        this.paragraphs = new ArrayList<>();
+    }
+
+    public void add(Paragraph paragraph) {
+        paragraphs.add(paragraph);
+    }
+
+    public Paragraph get(int index) {
+        if (index >= 0 && index < paragraphs.size()) {
+            return paragraphs.get(index);
+        }
+        return null;
+    }
+
+    public void remove(int index) {
+        if (index >= 0 && index < paragraphs.size()) {
+            paragraphs.remove(index);
+        }
+    }
+
+    public void printAll() {
+        for (Paragraph paragraph : paragraphs) {
+            paragraph.print();
+        }
     }
 }
