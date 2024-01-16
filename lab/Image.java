@@ -11,7 +11,7 @@ public class Image implements Element{
     }
 
     public void print() {
-        System.out.println("Clase.Image: " + url);
+        System.out.println("lab.Image: " + url);
     }
 
     @Override
