@@ -1,5 +1,4 @@
 package lab;
-
 class TableOfContents implements Element{
     public void print() {
         System.out.println("lab.Table of Contents");

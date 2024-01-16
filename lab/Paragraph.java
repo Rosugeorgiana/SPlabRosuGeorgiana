@@ -3,53 +3,62 @@ package lab;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Paragraph implements Element{
+public class Paragraph implements Element {
     private String text;
+    private AlignStrategy alignStrategy;
+    private List<Element> elements;
 
     public Paragraph(String text) {
         this.text = text;
+        this.elements = new ArrayList<>();
+    }
+
+    public void setAlignStrategy(AlignStrategy alignStrategy) {
+        this.alignStrategy = alignStrategy;
     }
 
     public void print() {
-        System.out.println("lab.Paragraph: " + text);
+        if (alignStrategy != null) {
+            alignStrategy.render(this);
+        } else {
+            System.out.println("Clase.Paragraph: " + text);
+        }
     }
 
     @Override
     public void add(Element element) {
-
+        elements.add(element);
     }
 
     @Override
     public void remove(Element element) {
-
+        elements.remove(element);
     }
 
-    private List<Paragraph> paragraphs;
-
-    public Paragraph() {
-        this.paragraphs = new ArrayList<>();
-    }
-
-    public void add(Paragraph paragraph) {
-        paragraphs.add(paragraph);
-    }
-
-    public Paragraph get(int index) {
-        if (index >= 0 && index < paragraphs.size()) {
-            return paragraphs.get(index);
+    public Element get(int index) {
+        if (index >= 0 && index < elements.size()) {
+            return elements.get(index);
         }
         return null;
     }
 
-    public void remove(int index) {
-        if (index >= 0 && index < paragraphs.size()) {
-            paragraphs.remove(index);
+    public void printAll() {
+        for (Element element : elements) {
+            if (element instanceof Paragraph) {
+                ((Paragraph) element).print();
+            }
         }
     }
 
-    public void printAll() {
-        for (Paragraph paragraph : paragraphs) {
-            paragraph.print();
-        }
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String get() {
+        return text;
     }
 }
